@@ -2,13 +2,14 @@ name: DeployGate
 
 on:
   workflow_dispatch:
-    build_variants:
-      type: choice
-      description: 'Build Variants'
-      required: false
-      default: 'debug'
-      options:
-        - 'debug'
+    inputs:
+      build_variants:
+        type: choice
+        description: 'Build Variants'
+        required: false
+        default: 'debug'
+        options:
+          - 'debug'
 
 jobs:
   build:
