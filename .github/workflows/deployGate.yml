@@ -2,6 +2,13 @@ name: DeployGate
 
 on:
   workflow_dispatch:
+    build_variants:
+      type: choice
+      description: 'Build Variants'
+      required: false
+      default: 'debug'
+      options:
+        - 'debug'
 
 jobs:
   build:
@@ -10,6 +17,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+
+      - name: inputs check
+        run: echo "build_variants=${{ inputs.build_variants }}"
 
       - name: Set up JDK 17
         uses: actions/setup-java@v1
