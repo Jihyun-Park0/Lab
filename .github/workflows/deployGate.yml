@@ -14,7 +14,7 @@ on:
         type: string
         description: 'After Date'
         required: true
-        default: $(date -d "7days ago" +"%Y-%m-%dT06:00:00+09:00")
+        default: '$(date -d "7days ago" +"%Y-%m-%dT06:00:00+09:00")'
 
 jobs:
   build:
