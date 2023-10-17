@@ -5,6 +5,7 @@ on:
     inputs:
       environment:
           type: environment
+          default: prod
 
 jobs:
   show-input:
