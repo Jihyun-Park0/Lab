@@ -8,7 +8,7 @@ on:
           default: prod
 
 env:
- APP_NAME: ${{ vars.NAME }}
+  APP_NAME: ${{ vars.NAME }}
 
 jobs:
   show-input:
@@ -17,4 +17,4 @@ jobs:
     steps:
       - name: show variable
         run: |
-          echo ${APP_NAME}
+          echo "name = ${APP_NAME}"
