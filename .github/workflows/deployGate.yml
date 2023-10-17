@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environment }}
     steps:
-      - name: show token
+      - name: show variable
         run: |
-          echo ${{ secrets.TOKEN }}
+          echo ${{ env.NAME }}
