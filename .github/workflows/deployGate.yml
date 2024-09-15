@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: inputs check
-        run: echo "build_variants=${{ inputs.build_variants }}"
+        run: echo "build_variants=${{ inputs.build_variants }}, "
 
       - name: Set up JDK 17
         uses: actions/setup-java@v1
@@ -38,7 +38,7 @@ jobs:
       - name: Build App Bundle
         run: ./gradlew assembleDebug
 
-      - name: Distribute App
+      - name: Distribute App (7 days ago)
         if: ${{ github.event.inputs.after_date == '' }}
         run: |
           after_date=$(date -d "7days ago" +"%Y-%m-%dT06:00:00+09:00")
@@ -53,7 +53,7 @@ jobs:
             -F "message=${deploy_message}" \
             -v "https://deploygate.com/api/users/${{secrets.DEPLOY_GATE_USER_NAME}}/apps"
 
-      - name: Distribute App
+      - name: Distribute App (Custom date)
         if: ${{ github.event.inputs.after_date != '' }}
         run: |
           after_date=$(date -d "7days ago" +"%Y-%m-%dT06:00:00+09:00")
