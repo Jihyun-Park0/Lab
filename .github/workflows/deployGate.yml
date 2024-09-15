@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: inputs check
-        run: echo "build_variants=${{ inputs.build_variants }}, "
+        run: echo "build_variants=${{ inputs.build_variants }}, after_date=${{ inputs.after_date }}"
 
       - name: Set up JDK 17
         uses: actions/setup-java@v1
